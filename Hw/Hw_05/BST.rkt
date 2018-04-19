@@ -1,0 +1,42 @@
+#lang racket
+
+(define (min lst)
+  (if (= (length lst) 1)
+      (car lst)
+      (let ((a (min (cdr lst))) (b (car lst)))
+        (if (< a b)
+            a
+            b))))
+
+(define a (read))
+(define (get-list n)
+  (if (= n 0)
+      '()
+      (cons (read) (get-list (- n 1)))))
+
+(define (solve n)
+  (if (= n 0)
+      (void)
+      (begin
+        (if (solvep (get-list (read)))
+            (displayln 'YES)
+            (displayln 'NO))
+        (solve (- n 1)))))
+(define (cut2 a lst)
+  (if (null? lst)
+      '()
+      (if (> a (car lst))
+          (cut2 a (cdr lst))
+          lst)))
+(define (cut a lst)
+  (if (null? lst)
+      '()
+      (if (> a (car lst))
+          (cons (car lst) (cut a (cdr lst)))
+          '())))
+(define (solvep lst)
+  (if (null? lst)
+      #t
+      (let* ((a (car lst)) (b (cut a (cdr lst))) (c (cut2 a (cdr lst))))
+        (and (or (null? c) (< a (min c))) (solvep b) (solvep c)))))
+(solve a)

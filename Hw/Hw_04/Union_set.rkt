@@ -1,0 +1,15 @@
+#lang racket
+(define (union a b)
+  (define (unique a)
+    (if (< (length a) 2)
+        a
+        (if (= (car a) (cadr a))
+            (unique (cdr a))
+            (cons (car a) (unique (cdr a))))))
+  (unique (sort (append a b) <)))
+(define (main)
+  (let ((a (read)) (b (read)))
+    (if (eq? a eof)
+        (void)
+        (begin (displayln (union a b)) (main)))))
+(main)
