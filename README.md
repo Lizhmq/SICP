@@ -1,2 +1,2 @@
 # SICP
-# openjudge: http://lisp.test.openjudge.org/
+openjudge: http://lisp.test.openjudge.org/
