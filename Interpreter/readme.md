@@ -1,4 +1,4 @@
-#Scheme解释器
+# Scheme解释器
 
 元循环：用一种语言实现自身的求值器
 
@@ -8,7 +8,7 @@
 
 
 
-##my-eval函数
+## my-eval函数
 
 *基本表达式
 
@@ -103,8 +103,8 @@ cond-actions部分不存在时，以cond-predicate部分为返回值
 
 frame也是一个序对，car部分是约束的变量组成的list，cdr部分是对应的值的list
 
-![environment](C:\Users\Joe\Documents\GitHub\SICP\Interpreter\environment.PNG)
+![environment](https://github.com/Lizhmq/SICP/blob/master/Interpreter/environment.PNG)
 
 求值过程时，建立新的内层环境并在其中求值
 
-![env](C:\Users\Joe\Documents\GitHub\SICP\Interpreter\env.PNG)
+![env](https://github.com/Lizhmq/SICP/blob/master/Interpreter/env.PNG)
