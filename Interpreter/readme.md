@@ -97,11 +97,11 @@ cond-actions部分不存在时，以cond-predicate部分为返回值
 
 frame也是一个序对，car部分是约束的变量组成的list，cdr部分是对应的值的list
 
-![environment](https://github.com/Lizhmq/SICP/Interpreter/Pics/environment.PNG)
+![environment](https://github.com/Lizhmq/SICP/tree/master/Interpreter/Pics/environment.PNG)
 
 求值过程时，建立新的内层环境并在其中求值
 
-![env](https://github.com/Lizhmq/SICP/Interpreter/Pics/env.PNG)
+![env](https://github.com/Lizhmq/SICP/tree/master/Interpreter/Pics/env.PNG)
 
 
 
