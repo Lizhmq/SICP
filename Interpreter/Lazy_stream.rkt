@@ -126,7 +126,7 @@
   (and (pair? (cdr clause)) (eq? (cadr clause) '=>)))
 (define (expand-clauses clauses)
   (if (null? clauses)
-      (void)
+      'false
       (let ((first (car clauses))
             (rest (cdr clauses)))
         (if (cond-else-clause? first)
@@ -277,11 +277,16 @@
           (frame-values frame))))
 ;初始过程,用于构建初始环境
 (define primitive-procedures
-  (list (list 'list list)
+  (list (list 'car car)
+        (list 'cdr cdr)
+        (list 'cadr cadr)
+        (list 'list list)
+        (list 'cons cons)
         (list 'pair? pair?)
         (list 'append append)
         (list 'caddr caddr)
         (list '+ +)
+        (list 'void void)
         (list '- -)
         (list '* *)
         (list '/ /)
@@ -289,7 +294,6 @@
         (list '> >)
         (list '= =)
         (list 'assoc assoc)
-        (list 'display display)
         (list 'length length)
         (list 'not not)
         (list 'eq? eq?)
@@ -297,6 +301,8 @@
         (list 'sqrt sqrt)
         (list 'symbol? symbol?)
         (list 'number? number?)
+        (list 'display display)
+        (list 'newline newline)
         (list 'null? null?)))
 (define (primitive-procedure-objects)
   (map (lambda (proc) (list 'primitive (cadr proc)))     ;初始过程用'primitive标签
