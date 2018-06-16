@@ -1,0 +1,8 @@
+#lang racket
+
+(define (loop)
+  (define a (read))
+  (cond ((eq? a eof) (void))
+        (else (pascal a)
+              (loop))))
+(loop)

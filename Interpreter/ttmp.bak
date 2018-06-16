@@ -1,0 +1,10 @@
+#lang racket
+
+(require r5rs)
+(require data/queue)
+
+(define (show res)
+  (if res
+      (displayln res)
+      (displayln "inf")))
+

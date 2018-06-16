@@ -1,0 +1,27 @@
+#lang racket
+
+(define (pascal n)
+  (define (my-display lst)
+    (if (null? lst)
+        (newline)
+        (begin (display (car lst))
+               (display " ")
+               (my-display (cdr lst)))))
+  (define (generate last-lst)
+    (if (null? (cdr last-lst))
+        (list 1)
+        (cons (+ (car last-lst) (cadr last-lst)) (generate (cdr last-lst)))))
+  (if (= n 1)
+      (begin (displayln 1) (list 1))
+      (let* ((last-lst (pascal (- n 1)))
+             (res (generate (cons 0 last-lst))))
+        (my-display res)
+        res)))
+         
+
+(define (loop)
+  (define a (read))
+  (cond ((eq? a eof) (void))
+        (else (pascal a)
+              (loop))))
+(loop)
